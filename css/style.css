@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #607d8b;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 62.5%;
+}
+
+/* apod */
+.apod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  width: 80vw;
+}
+
+.apod h1 {
+  color: #212121;
+  font-size: 3.2rem;
+}
+
+.apod h2 {
+  color: #212121;
+  font-size: 2.2rem;
+}
+
+.apod p {
+  font-size: 1.4rem;
+}
+
+.apod a {
+  color: #03a9f4;
+}
+
+.apod #date,
+.apod #copyright {
+  color: rgb(207, 216, 220);
+}
+
+/* calendar */
+.wrapper {
+  width: 45rem;
+  background: #ffffff;
+  color: #212121;
+  margin: auto;
+}
+
+.wrapper header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 30px;
+  background: #455a64;
+}
+
+.wrapper header .current-date {
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.wrapper header i {
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #cfd8dc;
+}
+
+.wrapper header i:last-child {
+  margin-right: -10px;
+}
+
+.calendar ul {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.calendar .weeks li {
+  font-weight: 500;
+}
+
+.calendar ul li {
+  width: calc(100% / 7);
+  font-size: 1.2rem;
+}
+
+.calendar ul li img {
+  width: 100%;
+}
+
+.calendar .days {
+  margin-bottom: 20px;
+}
