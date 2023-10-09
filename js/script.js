@@ -153,9 +153,11 @@ function init() {
     case '/index.html':
       displayAPOD();
       break;
+    case '/randomapod':
     case '/randomAPOD.html':
       displayRandom();
       break;
+    case '/calendar':
     case '/calendar.html':
       displayCalander();
       prevNextIcon.forEach((icon) => {
