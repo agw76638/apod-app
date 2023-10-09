@@ -40,6 +40,10 @@ body {
   color: #03a9f4;
 }
 
+.apod img {
+  max-width: 100%;
+}
+
 .apod #date,
 .apod #copyright {
   color: rgb(207, 216, 220);
