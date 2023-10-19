@@ -71,19 +71,24 @@ body {
   color: #ffffff;
 }
 
-.wrapper header i {
+.wrapper header button {
   height: 38px;
   width: 38px;
   margin: 0 1px;
   text-align: center;
   line-height: 38px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   cursor: pointer;
   background: #cfd8dc;
 }
 
-.wrapper header i:last-child {
+.wrapper header button:last-child {
   margin-right: -10px;
+}
+
+.wrapper header button i {
+  margin: auto;
+  text-align: center;
 }
 
 .calendar ul {

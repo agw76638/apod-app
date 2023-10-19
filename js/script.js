@@ -50,7 +50,7 @@ const todayDate = today.getDate();
 const todayMonth = today.getMonth() + 1;
 const todayYear = today.getFullYear();
 
-const prevNextIcon = document.querySelectorAll('.icons i');
+const prevNextIcon = document.querySelectorAll('.icons button');
 async function displayCalander() {
   const currentDate = document.querySelector('.current-date');
   const daysTag = document.querySelector('.days');
@@ -102,7 +102,7 @@ async function displayCalander() {
       <li>
         ${i}
         <a href='${data[i - 1].hdurl}'>
-          <img src='${data[i - 1].url}' loading='lazy>
+          <img src='${data[i - 1].url}' loading='lazy'>
         </a>
       </li>`;
     }
