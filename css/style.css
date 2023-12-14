@@ -11,6 +11,24 @@ body {
   font-size: 62.5%;
 }
 
+body nav {
+  background-color: #455a64;
+}
+
+body nav ul {
+  width: 80vw;
+  list-style: none;
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+}
+
+body nav ul a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
 /* apod */
 .apod {
   display: flex;
