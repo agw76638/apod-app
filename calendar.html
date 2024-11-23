@@ -2,34 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Import Google Icon Font-->
     <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.min.css"
+      media="screen,projection"
+    />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>APOD Calendar</title>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/randomAPOD.html"> Random APOD Generator</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-      </ul>
-    </nav>
+    <nav class="blue-grey darken-2" id="nav"></nav>
     <section class="wrapper">
       <header>
         <p class="current-date"></p>
         <div class="icons">
-          <button id="prev">
-            <i class="fa-solid fa-chevron-left"></i>
+          <button id="prev" class="waves-effect waves-light btn">
+            <i class="material-icons">chevron_left</i>
           </button>
-          <button id="next">
-            <i class="fa-solid fa-chevron-right"></i>
+          <button id="next" class="waves-effect waves-light btn">
+            <i class="material-icons">chevron_right</i>
           </button>
         </div>
       </header>
@@ -46,6 +47,9 @@
         <ul class="days"></ul>
       </div>
     </section>
+    <script src="js/nav.js"></script>
     <script src="js/script.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/modal.js"></script>
   </body>
 </html>
