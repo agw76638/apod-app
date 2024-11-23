@@ -12,54 +12,44 @@ body {
 }
 
 body nav {
-  background-color: #455a64;
 }
 
 body nav ul {
-  width: 80vw;
-  list-style: none;
+  height: 100%;
   display: flex;
-  margin: auto;
-  justify-content: space-around;
+}
+body nav ul li {
+  height: 100%;
 }
 
-body nav ul a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1.4rem;
+body nav ul li a {
+  height: 100%;
+  display: flex;
 }
 
+body nav ul li a img {
+  max-height: 75%;
+  margin-top: 12.5%;
+}
 /* apod */
 .apod {
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   margin: auto;
-  width: 80vw;
 }
 
 .apod h1 {
   color: #212121;
-  font-size: 3.2rem;
 }
 
 .apod h2 {
   color: #212121;
-  font-size: 2.2rem;
 }
 
 .apod p {
   font-size: 1.4rem;
-}
-
-.apod a {
-  color: #03a9f4;
-}
-
-.apod img {
-  max-width: 100%;
 }
 
 .apod #date,
@@ -124,8 +114,8 @@ body nav ul a {
   font-size: 1.2rem;
 }
 
-.calendar ul li img {
-  width: 100%;
+.calendar ul li a {
+  white-space: pre-line;
 }
 
 .calendar .days {

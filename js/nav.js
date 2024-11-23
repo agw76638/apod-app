@@ -1,7 +1,9 @@
-const nav = document.getElementById('nav')
+const nav = document.getElementById('nav');
 
-nav.innerHTML =`<ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="randomAPOD.html"> Random APOD Generator</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-      </ul>`
+nav.innerHTML = `
+      <a href="#" data-target="slide-out" class="sidenav-trigger sidenav-fixed"
+      ><i class="material-icons">menu</i></a
+    >
+      <ul class='right'>
+        <li><a href="https://github.com/agw76638/apod-app"><img src='images/github-mark.svg' class='responsive-img'></a></li>
+      </ul>`;

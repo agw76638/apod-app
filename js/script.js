@@ -114,7 +114,7 @@ async function displayCalander() {
         data[i - 1].title
       }" loading='lazy' class="responsive-img">
                 <p>Illustration Credit & Copyright: ${data[i - 1].copyright}</p>
-                <p>${data[i - 1].explanation}</p>
+                <p class="flow-text">${data[i - 1].explanation}</p>
             </div>
           <div class="modal-footer">
             <a href="#!" class='modal-close'>close</a>
