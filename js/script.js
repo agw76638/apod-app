@@ -96,35 +96,42 @@ async function displayCalander() {
         currMonth + 1
       }-01&end_date=${currYear}-${currMonth + 1}-${todayDate}`
     );
-
+  
     const data = await response.json();
     console.log(data);
 
-    function renderCal(i) {
-      liTag += `
-      <li>
-        ${i}
-        <a class='modal-trigger' href='#modal${i - 1}'>
-        ${data[i - 1].title}
-        </a>
-        <div id='modal${i - 1}' class="modal white-text">
-          <div class="modal-content">
-            <h4>${data[i - 1].title}</h4>
-                <img src="${data[i - 1].url}" alt="${
-        data[i - 1].title
-      }" loading='lazy' class="responsive-img">
-                <p>Illustration Credit & Copyright: ${data[i - 1].copyright}</p>
-                <p class="flow-text">${data[i - 1].explanation}</p>
-            </div>
-          <div class="modal-footer">
-            <a href="#!" class='modal-close'>close</a>
-          </div>
-        </div>
-      </li>`;
-    }
-
     for (let i = 1; i <= todayDate; i++) {
-      renderCal(i);
+      const mediaUrl = data[i - 1].url;
+      let mediaElement;
+    
+      if (mediaUrl.endsWith('.jpg') || mediaUrl.endsWith('.jpeg') || mediaUrl.endsWith('.png') || mediaUrl.endsWith('.gif')) {
+        mediaElement = `<img src="${mediaUrl}" alt="${data[i - 1].title}" loading='lazy' class="responsive-img">`;
+      } else if (mediaUrl.includes('youtube')) {
+        mediaElement = `<div class="responsive-video">
+                          <iframe src="${mediaUrl}" ></iframe>
+                        </div>`;
+      } else {
+        mediaElement = `<p>Unsupported media type</p>`;
+      }
+    
+      liTag += `
+        <li>
+          ${i}
+          <a class='modal-trigger' href='#modal${i - 1}'>
+          ${data[i - 1].title}
+          </a>
+          <div id='modal${i - 1}' class="modal white-text">
+            <div class="modal-content">
+              <h4>${data[i - 1].title}</h4>
+              ${mediaElement}
+              <p>Illustration Credit & Copyright: ${data[i - 1].copyright}</p>
+              <p class="flow-text">${data[i - 1].explanation}</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class='modal-close'>close</a>
+            </div>
+          </div>
+        </li>`;
     }
 
     for (let i = todayDate + 1; i <= lastDateofMonth; i++) {
@@ -140,7 +147,26 @@ async function displayCalander() {
     const data = await response.json();
 
     for (let i = 1; i <= lastDateofMonth; i++) {
-      renderCal(i);
+      liTag += `
+    <li>
+      ${i}
+      <a class='modal-trigger' href='#modal${i - 1}'>
+      ${data[i - 1].title}
+      </a>
+      <div id='modal${i - 1}' class="modal white-text">
+        <div class="modal-content">
+          <h4>${data[i - 1].title}</h4>
+              <img src="${data[i - 1].url}" alt="${
+      data[i - 1].title
+    }" loading='lazy' class="responsive-img">
+              <p>Illustration Credit & Copyright: ${data[i - 1].copyright}</p>
+              <p class="flow-text">${data[i - 1].explanation}</p>
+          </div>
+        <div class="modal-footer">
+          <a href="#!" class='modal-close'>close</a>
+        </div>
+      </div>
+    </li>`;
     }
   }
 

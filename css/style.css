@@ -59,7 +59,7 @@ body nav ul li a img {
 
 /* calendar */
 .wrapper {
-  width: 45rem;
+  /* width: 45rem; */
   background: #ffffff;
   color: #212121;
   margin: 5% auto;
@@ -112,6 +112,7 @@ body nav ul li a img {
 .calendar ul li {
   width: calc(100% / 7);
   font-size: 1.2rem;
+  border: 1px solid #000;
 }
 
 .calendar ul li a {

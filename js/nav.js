@@ -5,5 +5,5 @@ nav.innerHTML = `
       ><i class="material-icons">menu</i></a
     >
       <ul class='right'>
-        <li><a href="https://github.com/agw76638/apod-app"><img src='images/github-mark.svg' class='responsive-img'></a></li>
+        <li><a href="https://github.com/agw76638/apod-app"><img src='images/github-mark.svg' class='responsive-img' alt='source code'></a></li>
       </ul>`;
