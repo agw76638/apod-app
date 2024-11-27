@@ -53,7 +53,7 @@ const todayMonth = today.getMonth() + 1;
 const todayYear = today.getFullYear();
 
 const prevNextIcon = document.querySelectorAll('.icons button');
-async function displayCalander() {
+async function displayCalendar() {
   const currentDate = document.querySelector('.current-date');
   const daysTag = document.querySelector('.days');
 
@@ -88,6 +88,40 @@ async function displayCalander() {
     </li>`;
   }
 
+  function createMediaElement(mediaType, url, title) {
+    if (mediaType === 'image') {
+      return `<img src="${url}" alt="${title}" loading='lazy' class="responsive-img">`;
+    } else if (mediaType === 'video') {
+      return `<div class="responsive-video">
+                <iframe src="${url}" ></iframe>
+              </div>`;
+    } else {
+      return `<p>Unsupported media type</p>`;
+    }
+  }
+
+  function createListItem(i, data) {
+    const mediaElement = createMediaElement(data.media_type, data.url, data.title);
+    return `
+      <li>
+        ${i}
+        <a class='modal-trigger flow-text' href='#modal${i - 1}'>
+        ${data.title}
+        </a>
+        <div id='modal${i - 1}' class="modal white-text">
+          <div class="modal-content">
+            <h4>${data.title}</h4>
+            ${mediaElement}
+            <cite>Illustration Credit & Copyright: ${data.copyright}</cite>
+            <p class="flow-text">${data.explanation}</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class='modal-close'>close</a>
+          </div>
+        </div>
+      </li>`;
+  }
+
   if (currYear === todayYear && currMonth + 1 === todayMonth) {
     document.getElementById('next').disabled = true;
 
@@ -101,37 +135,7 @@ async function displayCalander() {
     console.log(data);
 
     for (let i = 1; i <= todayDate; i++) {
-      const mediaUrl = data[i - 1].url;
-      let mediaElement;
-    
-      if (mediaUrl.endsWith('.jpg') || mediaUrl.endsWith('.jpeg') || mediaUrl.endsWith('.png') || mediaUrl.endsWith('.gif')) {
-        mediaElement = `<img src="${mediaUrl}" alt="${data[i - 1].title}" loading='lazy' class="responsive-img">`;
-      } else if (mediaUrl.includes('youtube')) {
-        mediaElement = `<div class="responsive-video">
-                          <iframe src="${mediaUrl}" ></iframe>
-                        </div>`;
-      } else {
-        mediaElement = `<p>Unsupported media type</p>`;
-      }
-    
-      liTag += `
-        <li>
-          ${i}
-          <a class='modal-trigger' href='#modal${i - 1}'>
-          ${data[i - 1].title}
-          </a>
-          <div id='modal${i - 1}' class="modal white-text">
-            <div class="modal-content">
-              <h4>${data[i - 1].title}</h4>
-              ${mediaElement}
-              <p>Illustration Credit & Copyright: ${data[i - 1].copyright}</p>
-              <p class="flow-text">${data[i - 1].explanation}</p>
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class='modal-close'>close</a>
-            </div>
-          </div>
-        </li>`;
+      liTag += createListItem(i, data[i - 1]);
     }
 
     for (let i = todayDate + 1; i <= lastDateofMonth; i++) {
@@ -145,28 +149,10 @@ async function displayCalander() {
     );
 
     const data = await response.json();
+    console.log(data);
 
     for (let i = 1; i <= lastDateofMonth; i++) {
-      liTag += `
-    <li>
-      ${i}
-      <a class='modal-trigger' href='#modal${i - 1}'>
-      ${data[i - 1].title}
-      </a>
-      <div id='modal${i - 1}' class="modal white-text">
-        <div class="modal-content">
-          <h4>${data[i - 1].title}</h4>
-              <img src="${data[i - 1].url}" alt="${
-      data[i - 1].title
-    }" loading='lazy' class="responsive-img">
-              <p>Illustration Credit & Copyright: ${data[i - 1].copyright}</p>
-              <p class="flow-text">${data[i - 1].explanation}</p>
-          </div>
-        <div class="modal-footer">
-          <a href="#!" class='modal-close'>close</a>
-        </div>
-      </div>
-    </li>`;
+      liTag += createListItem(i, data[i - 1]);
     }
   }
 
@@ -205,7 +191,7 @@ function init() {
       break;
     case '/calendar':
     case '/calendar.html':
-      displayCalander();
+      displayCalendar();
       prevNextIcon.forEach((icon) => {
         icon.addEventListener('click', () => {
           currMonth = icon.id === 'prev' ? currMonth - 1 : currMonth + 1;
@@ -216,7 +202,7 @@ function init() {
             currMonth = date.getMonth;
           }
 
-          displayCalander();
+          displayCalendar();
         });
       });
       break;
