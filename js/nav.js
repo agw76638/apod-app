@@ -1,7 +1,7 @@
 const nav = document.getElementById('nav');
 
 nav.innerHTML = `
-      <a href="#" data-target="slide-out" class="sidenav-trigger sidenav-fixed"
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"
       ><i class="material-icons">menu</i></a
     >
       <ul class='right'>

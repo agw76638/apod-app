@@ -105,7 +105,7 @@ async function displayCalendar() {
     return `
       <li>
         ${i}
-        <a class='modal-trigger flow-text' href='#modal${i - 1}'>
+        <a class='modal-trigger truncate' href='#modal${i - 1}'>
         ${data.title}
         </a>
         <div id='modal${i - 1}' class="modal white-text">

@@ -9,6 +9,8 @@ body {
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
   font-size: 62.5%;
+  margin: 0;
+  padding: 0;
 }
 
 body nav {
@@ -63,6 +65,7 @@ body nav ul li a img {
   background: #ffffff;
   color: #212121;
   margin: 5% auto;
+  max-width: 100%;
 }
 
 .wrapper header {
@@ -79,30 +82,17 @@ body nav ul li a img {
   color: #ffffff;
 }
 
-.wrapper header button {
-  /* height: 38px;
-  width: 38px;
-  margin: 0 1px;
-  text-align: center;
-  line-height: 38px; */
-  /* border-radius: 50%; */
-  /* cursor: pointer;
-  background: #cfd8dc; */
-}
-
 .wrapper header button:last-child {
   margin-right: -10px;
 }
-
-/* .wrapper header button i {
-  margin: auto;
-  text-align: center;
-} */
 
 .calendar ul {
   display: flex;
   list-style: none;
   flex-wrap: wrap;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .calendar .weeks li {
@@ -121,4 +111,25 @@ body nav ul li a img {
 
 .calendar .days {
   margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .wrapper header {
+    padding: 10px 20px;
+  }
+
+  .icons{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .wrapper header button{
+    width: 30px;
+    height: 30px;
+    display: flex;justify-content: center;align-items: center;
+  }
+  
+  .calendar ul li a{
+    font-size: 0.8rem;
+  }
 }
