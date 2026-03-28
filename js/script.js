@@ -125,10 +125,10 @@ async function displayCalendar() {
   if (currYear === todayYear && currMonth + 1 === todayMonth) {
     document.getElementById('next').disabled = true;
 
+    const paddedMonth = String(currMonth + 1).padStart(2, '0');
+    const paddedDay = String(todayDate).padStart(2, '0');
     const response = await fetch(
-      `${apiUrl}?api_key=${apiKey}&start_date=${currYear}-${
-        currMonth + 1
-      }-01&end_date=${currYear}-${currMonth + 1}-${todayDate}`
+      `${apiUrl}?api_key=${apiKey}&start_date=${currYear}-${paddedMonth}-01&end_date=${currYear}-${paddedMonth}-${paddedDay}`
     );
   
     const data = await response.json();
@@ -142,10 +142,9 @@ async function displayCalendar() {
       liTag += `<li class='grey-text'>${i}</li>`;
     }
   } else {
+    const paddedMonth = String(currMonth + 1).padStart(2, '0');
     const response = await fetch(
-      `${apiUrl}?api_key=${apiKey}&start_date=${currYear}-${
-        currMonth + 1
-      }-01&end_date=${currYear}-${currMonth + 1}-${lastDateofMonth}`
+      `${apiUrl}?api_key=${apiKey}&start_date=${currYear}-${paddedMonth}-01&end_date=${currYear}-${paddedMonth}-${lastDateofMonth}`
     );
 
     const data = await response.json();
@@ -199,7 +198,7 @@ function init() {
           if (currMonth < 0 || currMonth > 11) {
             date = new Date(currYear, currMonth);
             currYear = date.getFullYear();
-            currMonth = date.getMonth;
+            currMonth = date.getMonth();
           }
 
           displayCalendar();
