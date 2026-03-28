@@ -134,11 +134,11 @@ async function displayCalendar() {
     const data = await response.json();
     console.log(data);
 
-    for (let i = 1; i <= todayDate; i++) {
+    for (let i = 1; i <= data.length; i++) {
       liTag += createListItem(i, data[i - 1]);
     }
 
-    for (let i = todayDate + 1; i <= lastDateofMonth; i++) {
+    for (let i = data.length + 1; i <= lastDateofMonth; i++) {
       liTag += `<li class='grey-text'>${i}</li>`;
     }
   } else {
